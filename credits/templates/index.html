@@ -1,0 +1,26 @@
+
+<table style="width:100%">
+    <tr>
+        <th>Name</th>
+        <th>ID No.</th>
+        <th>Loan Amount</th>
+        <th>Application Date</th>
+        <th>Loan interest</th>
+      </tr>
+     
+{% for customer in customers %}
+
+<tr>
+<th>{{customer.custName}}</th>
+<th>{{customer.IDNo}}</th>
+<th>{{customer.amount}}</th>
+<th>{{customer.AppDate}}</th>
+<th>{{customer.LInterest}}</th>
+
+</tr>
+
+{% endfor %}
+{% for interest in Interest %}
+<th>{{interest.interestRate}}</th>
+{% endfor %}
+</table>
