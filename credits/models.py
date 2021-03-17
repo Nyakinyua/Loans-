@@ -30,16 +30,16 @@ class Customer(models.Model):
 @receiver(pre_save, sender = Customer)
 def calculate_interest(sender,instance,*args,**kwargs):
     if not instance.LInterest:
-    client = Customer.objects.exclude(Loan.amount = 0.00)
-    for client in client:
-        R=(Loan.interestRate/100)
-        LAmount=Customer.amount
-        T= TimeStamp(customer.AppDate)
-        instance.LInterest=Customer.objects.Create(Interest=R*LAmount*T)
+        client = Customer.objects.filter(Customer.amount >= 0.00)
+        for client in client:
+            R=(Loan.interestRate/100)
+            LAmount=Customer.amount
+            T= TimeStamp(customer.AppDate)
+            instance.LInterest=Customer.objects.Create(Interest=R*LAmount*T)
 
 
-    
         
+            
 
 
   
